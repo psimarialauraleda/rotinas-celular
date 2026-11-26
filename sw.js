@@ -1,5 +1,5 @@
 // Guarda o "casco" do app para abrir mesmo sem internet. Os dados nunca passam por aqui (ficam no aparelho e no Supabase).
-const CACHE = 'rotinas-v1'
+const CACHE = 'rotinas-v2'
 self.addEventListener('install', (e) => { self.skipWaiting() })
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()))
